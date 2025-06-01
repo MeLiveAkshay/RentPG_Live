@@ -6,11 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | RentPG</title>
     <meta name="description" content="Welcome to RentPG, your go-to platform for finding rental properties.">
-    <link rel="shortcut icon" href="{% static 'image/logo.png' %}" type="image/x-icon">
+    
 </head>
 <body>
-    <h1>Welcome to the Home Page</h1>
-    <p>This is a simple home page template.</p>
-    <a href="/about">Go to About Page</a>
+    {% include 'home/element/header.html' %}
+
+    <main>
+        <section>
+            <h2>Featured Properties</h2>
+            <!-- Add code to display featured properties here -->
+        </section>
+
+        <section>
+            <h2>Latest News</h2>
+            <!-- Add code to display latest news here -->
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <!-- Add contact form or details here -->
+        </section>
+    </main>
+
+    {% include 'home/element/footer.html' %}
 </body>
 </html>

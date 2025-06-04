@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <title>{{title}}</title>
+    </head>
 <body>
-    <p>
-        <center>
-            hello world
-            <br>
-        </center>
-    </p>
+
+    {% include "element/header.html" %}
+    <p>About page</p>
+    <p>Welcome to the about page of our website. Here you can find information about our mission, vision, and team.</p>
+    <p>We are dedicated to providing the best service possible and ensuring that our users have a great experience.</p>
+    <p>Feel free to reach out if you have any questions or need further information.</p>
+    <div class="container">
+        <h1>Welcome to the Home Page</h1>
+        <p>This is the main content of the home page.</p>
+        <p>Here you can find various information and links to other pages.</p>
+        <p>Feel free to explore the site and learn more about what we offer.</p>
+        <p>If you have any questions, don't hesitate to contact us.</p>
+        <p>Thank you for visiting our website!</p>
+    </div>
+    {% include "element/fotter.html" %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

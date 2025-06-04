@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ room.name }} - RentPG Live</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .booking-form {
+      border: 1px solid #dee2e6;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+
+  {% include "element/header.html" %}
+
+  <div class="container my-5">
+    <div class="row g-4">
+      <!-- Room Info -->
+      <div class="col-md-6">
+        <img src="{{ room.image_url }}" class="img-fluid rounded mb-3" alt="{{ room.name }}">
+        <h2 class="mb-3">{{ room.name }}</h2>
+        <p><strong>Hotel Name:</strong> {{ room.hotel_name }}</p>
+        <p><strong>Description:</strong> {{ room.hotel_description }}</p>
+        <p><strong>Facilities:</strong> {{ room.facility }}</p>
+        <p><strong>Location:</strong> {{ room.location }}</p>
+        <h4 class="text-success">₹{{ room.price }} / month</h4>
+      </div>
+
+      <!-- Booking Form -->
+      <div class="col-md-6">
+        <div class="booking-form">
+          <h4 class="mb-3">Book This Room</h4>
+          <form method="post" action="/book-room/{{ room.id }}/">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="name" class="form-label">Your Full Name</label>
+              <input type="text" class="form-control" id="name" name="name" required />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="email" name="email" required />
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" name="phone" required />
+            </div>
+            <div class="mb-3">
+              <label for="move_in" class="form-label">Preferred Move-in Date</label>
+              <input type="date" class="form-control" id="move_in" name="move_in_date" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit Booking</button>
+          </form>
+          <p class="text-muted mt-3 mb-0" style="font-size: 0.9rem;">
+            Our team will contact you within 24 hours to confirm your booking.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include "element/footer.html" %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

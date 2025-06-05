@@ -25,6 +25,11 @@
     .alert-success {
       border-left: 4px solid #198754;
     }
+    .contact-info {
+      font-size: 0.95rem;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -66,9 +71,7 @@
                     required
                     value="{{ name|default:'' }}"
                   >
-                  <div class="invalid-feedback">
-                    Please enter your name.
-                  </div>
+                  <div class="invalid-feedback">Please enter your name.</div>
                 </div>
 
                 <div class="col-md-6">
@@ -79,9 +82,7 @@
                     required
                     value="{{ email|default:'' }}"
                   >
-                  <div class="invalid-feedback">
-                    Please provide a valid email.
-                  </div>
+                  <div class="invalid-feedback">Please provide a valid email.</div>
                 </div>
 
                 <div class="col-md-6">
@@ -92,9 +93,7 @@
                     required
                     value="{{ phone|default:'' }}"
                   >
-                  <div class="invalid-feedback">
-                    Please enter your phone number.
-                  </div>
+                  <div class="invalid-feedback">Please enter your phone number.</div>
                 </div>
 
                 <div class="col-md-6">
@@ -108,9 +107,7 @@
                     <option value="Content Writer">✍️ Content Writer</option>
                     <option value="Other">Other</option>
                   </select>
-                  <div class="invalid-feedback">
-                    Please select a position.
-                  </div>
+                  <div class="invalid-feedback">Please select a position.</div>
                 </div>
 
                 <div class="col-12">
@@ -120,9 +117,7 @@
                     accept=".pdf,.doc,.docx" 
                     required
                   >
-                  <div class="invalid-feedback">
-                    Please upload your resume (PDF, DOC, or DOCX).
-                  </div>
+                  <div class="invalid-feedback">Please upload your resume (PDF, DOC, or DOCX).</div>
                 </div>
 
                 <div class="col-12 text-center">
@@ -130,6 +125,11 @@
                 </div>
               </div>
             </form>
+
+            <div class="contact-info mt-4">
+              Or send your CV directly to 
+              <a href="mailto:careers@rentpg.com" class="text-decoration-none fw-medium">careers@rentpg.com</a>
+            </div>
           </div>
         </div>
       </div>
@@ -139,9 +139,7 @@
   {% include "element/footer.html" %}
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
   <script>
-    // Bootstrap form validation
     (() => {
       'use strict';
       const forms = document.querySelectorAll('.needs-validation');
@@ -159,14 +157,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-<!-- This code is a complete HTML template for a careers page on a website called RentPG Live. It includes a header, a main content area with job listings and an application form, and a footer. The form allows users to apply for jobs by entering their details and uploading their resume. The page uses Bootstrap for styling and includes client-side validation for the form inputs. -->
-<!-- The template also includes a success message that is displayed when the form is successfully submitted. The page is designed to be responsive and user-friendly, with a clean layout and clear instructions for applicants. -->    
-<!-- The script at the end handles form validation using Bootstrap's built-in functionality, ensuring that users fill out all required fields before submitting the form. -->
- <!-- sonna -->

@@ -16,6 +16,48 @@ def index(request):
         ]
     }
 
+    team_members = [
+        {
+            "name": "Akshay Kumar Prajapati",
+            "role": "Team Leader & Full Stack Developer",
+            "bio": "Passionate about building reliable and scalable digital solutions.",
+           
+            "linkedin_url": "https://linkedin.com/in/akshayprajapati",
+            "github_url": "https://github.com/akshayprajapati"
+        },
+        {
+            "name": "Nitu Kumari",
+            "role": "UI/UX Designer",
+            "bio": "Designs user-friendly interfaces for enhanced usability and aesthetics.",
+            "linkedin_url": "https://linkedin.com/in/nitukumari",
+            "github_url": "https://github.com/nitukumari"
+        },
+        {
+            "name": "Nishu Yadav",
+            "role": "Backend Developer",
+            "bio": "Ensures secure and efficient server-side operations.",
+    
+            "linkedin_url": "https://linkedin.com/in/nishuyadav",
+            "github_url": "https://github.com/nishuyadav"
+        },
+        {
+            "name": "Tanu Kumari",
+            "role": "Content Strategist",
+            "bio": "Crafts compelling content that connects with our audience.",
+        
+            "linkedin_url": "https://linkedin.com/in/tanukumari",
+            "github_url": "https://github.com/tanukumari"
+        },
+        {
+            "name": "Ankit Kumar Pandey",
+            "role": "Frontend Developer",
+            "bio": "Builds interactive and responsive user interfaces.",
+        
+            "linkedin_url": "https://linkedin.com/in/amitpatel",
+            "github_url": "https://github.com/amitpatel"
+        },
+    ]
+
     # Example data for available rooms
     base_room = {
         'image_url': 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=60',
@@ -27,7 +69,7 @@ def index(request):
     }
 
     rooms = []
-    for i in range(1, 26):
+    for i in range(1, 25):
         room = base_room.copy()
         room['id'] = i
         room['name'] = f'Demo Room {i}'
@@ -36,7 +78,8 @@ def index(request):
 
     context = {
         **meta_data,
-        'rooms': rooms
+        'rooms': rooms,
+        'team_members': team_members
     }
 
     return render(request, 'page/index.html', context)

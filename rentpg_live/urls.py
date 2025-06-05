@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from rentpg_live import views
 from rentpg_live import searchweb
-from rentpg_live import new__letter
+from rentpg_live import new__letter, user__web
 
 from django.conf.urls.static import static
 urlpatterns = [
@@ -38,6 +38,10 @@ urlpatterns = [
     path('newsletter/', new__letter.newsletter, name='newsletter'),
     path('newsletter/thanks/', new__letter.newsletter_thanks, name='newsletter_thanks'),
     
+
+
+    # User Login Page
+    path('user/login/',user__web.userLogin, name='user_login'),
 ] 
 
 

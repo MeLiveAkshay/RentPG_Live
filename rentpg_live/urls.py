@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from rentpg_live import views
+from rentpg_live import searchweb
+
 from django.conf.urls.static import static
 urlpatterns = [
     # Admin Panel
@@ -16,13 +18,20 @@ urlpatterns = [
 
     # Room Detail Page
     path('room/<int:room_id>/', views.room_detail, name='room_detail'),
-
+    
     # Booking Form Submission
     path('book-room/<int:room_id>/', views.book_room, name='book_room'),
 
     # Careers Page
     path('careers/', views.careers, name='careers'),
 
+
+
+    # Search Functionality
+    path('search/', searchweb.search, name='search_results'),
+    path('room_search/<int:room_id>/', searchweb.search_room, name='search_room_detail'),
+    path('search/book-room/<int:room_id>/', searchweb.book_room, name='book_room'),
+    
 ] 
 
 

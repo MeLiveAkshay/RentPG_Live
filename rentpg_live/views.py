@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-
+import datetime
+import datetime
 def index(request):
     meta_data = {
         'title': 'Home - RentPG Live',
@@ -68,6 +69,30 @@ def index(request):
         'price': 8500
     }
 
+    testimonials = [
+    {
+        "content": "RentPG Live helped me find a perfect place in just two days. Super easy to use!",
+        "user_name": "Ritika Mehta",
+        "user_role": "Student",
+        "location": "Delhi",
+        "created_at": datetime.date(2024, 12, 20)
+    },
+    {
+        "content": "I was able to list my PG and get inquiries within hours. Great platform!",
+        "user_name": "Rajesh Yadav",
+        "user_role": "PG Owner",
+        "location": "Mumbai",
+        "created_at": datetime.date(2025, 1, 5)
+    },
+    {
+        "content": "The customer support was excellent and helped me throughout the booking process.",
+        "user_name": "Neha Joshi",
+        "user_role": "Working Professional",
+        "location": "Bangalore",
+        "created_at": datetime.date(2025, 2, 12)
+    }
+]
+
     rooms = []
     for i in range(1, 25):
         room = base_room.copy()
@@ -79,7 +104,8 @@ def index(request):
     context = {
         **meta_data,
         'rooms': rooms,
-        'team_members': team_members
+        'team_members': team_members,
+        'testimonials': testimonials
     }
 
     return render(request, 'page/index.html', context)
@@ -173,9 +199,21 @@ def room_detail(request, room_id):
         'price': 8500 + room_id * 100
     }
     return render(request, 'element/room_detail.html', {'room': room})
+
+
+
+
+
+
+
+
+
+
+
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+import datetime
 
 @csrf_exempt
 def book_room(request, room_id):
@@ -192,7 +230,8 @@ def book_room(request, room_id):
             'name': name,
             'email': email,
             'phone': phone,
-            'move_in_date': move_in_date
+            'move_in_date': move_in_date,
+            'booking_id': f'BOOK-{room_id}-{datetime.datetime.now().strftime("%Y%m%d%H%M%S")}'
         })
 
     return HttpResponse("Invalid request method.", status=400)

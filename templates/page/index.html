@@ -114,6 +114,44 @@
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <h2 class="fw-bold text-primary">What Our Users Say</h2>
+          <p class="lead text-muted mt-3">
+            Hear from our satisfied users who found their perfect PG accommodations through RentPG Live.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        {% for testimonial in testimonials %}
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-body">
+                <p class="card-text">"{{ testimonial.content }}"</p>
+                <h5 class="card-title">{{ testimonial.user_name }}</h5>
+                <p class="card-text text-muted">{{ testimonial.user_role }}</p>
+                <p class="card-text text-muted">{{ testimonial.location }}</p>
+                
+              </div>
+              <div class="card-footer bg-white border-0 text-muted">
+                <small>Posted on {{ testimonial.created_at|date:"F j, Y" }}</small>
+              </div>
+            </div>
+          </div>
+        {% empty %}
+          <div class="col-12 text-center">
+            <p class="text-muted">No testimonials available at the moment.</p>
+          </div>
+        {% endfor %}
+      </div>
+      </div>
+    </div>
+  </section>
+  
 
 
 <!-- Our Team Section -->

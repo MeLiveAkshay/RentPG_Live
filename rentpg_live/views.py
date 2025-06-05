@@ -3,6 +3,10 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 import datetime
 import datetime
+import qrcode
+import uuid
+import base64
+from io import BytesIO
 def index(request):
     meta_data = {
         'title': 'Home - RentPG Live',
@@ -214,6 +218,10 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 import datetime
+import qrcode
+import uuid
+import base64
+from io import BytesIO
 
 @csrf_exempt
 def book_room(request, room_id):
@@ -223,7 +231,14 @@ def book_room(request, room_id):
         phone = request.POST.get('phone')
         move_in_date = request.POST.get('move_in_date')
         
-        # Optionally save to DB or send email here
+        booking_id = str(uuid.uuid4())[:8].upper()
+        qr_data = f"Booking ID: {booking_id}\nName: {name}\nRoom ID: {room_id}\nMove-in: {move_in_date}"
+
+        # Generate QR code
+        qr = qrcode.make(qr_data)
+        buffer = BytesIO()
+        qr.save(buffer, format="PNG")
+        qr_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
 
         return render(request, 'element/booking_confirmation.html', {
             'room_id': room_id,
@@ -231,7 +246,8 @@ def book_room(request, room_id):
             'email': email,
             'phone': phone,
             'move_in_date': move_in_date,
-            'booking_id': f'BOOK-{room_id}-{datetime.datetime.now().strftime("%Y%m%d%H%M%S")}'
+            'booking_id': booking_id,
+            'qr_code': qr_base64  # send to template
         })
 
     return HttpResponse("Invalid request method.", status=400)

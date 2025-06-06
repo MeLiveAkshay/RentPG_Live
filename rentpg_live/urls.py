@@ -39,9 +39,13 @@ urlpatterns = [
     path('newsletter/thanks/', new__letter.newsletter_thanks, name='newsletter_thanks'),
     
 
+    # User Web Pages
+    path('user/login/', user__web.userLogin, name='user_login'),
+    path('user/dashboard/', user__web.userDashboard, name='user_dashboard'),
+    path('user/logout/', user__web.userLogout, name='user_logout'),
 
-    # User Login Page
-    path('user/login/',user__web.userLogin, name='user_login'),
+   
+    
 ] 
 
 

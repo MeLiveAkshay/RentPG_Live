@@ -2,9 +2,11 @@ from django.contrib import admin
 from django.urls import path, include
 from rentpg_live import views
 from rentpg_live import searchweb
-from rentpg_live import new__letter, user__web
+from rentpg_live import new__letter
 
 from django.conf.urls.static import static
+
+from rentpg_live.user import user__web
 urlpatterns = [
      path('', include('rentpg_live.admin__url')),
     path('', include('rentpg_live.owner__url')),

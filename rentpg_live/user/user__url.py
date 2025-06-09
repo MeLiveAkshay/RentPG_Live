@@ -1,7 +1,7 @@
 # rentpg_live/admin__url.py
 
 from django.urls import path
-from rentpg_live import user__web
+from rentpg_live.user import user__web
 
 urlpatterns = [
     path('user/login/', user__web.userLogin, name='user_login'),

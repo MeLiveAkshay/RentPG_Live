@@ -1,11 +1,13 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from rentpg_live import views
 from rentpg_live import searchweb
 from rentpg_live import new__letter, user__web
 
 from django.conf.urls.static import static
 urlpatterns = [
+     path('', include('rentpg_live.admin__url')),
+    path('', include('rentpg_live.owner__url')),
     # Admin Panel
     path('cp-admin/', admin.site.urls),
 
@@ -43,6 +45,7 @@ urlpatterns = [
     path('user/login/', user__web.userLogin, name='user_login'),
     path('user/dashboard/', user__web.userDashboard, name='user_dashboard'),
     path('user/logout/', user__web.userLogout, name='user_logout'),
+    path('user/register/', user__web.userRegister, name='register'),
 
    
     

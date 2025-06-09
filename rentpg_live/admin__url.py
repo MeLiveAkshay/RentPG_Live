@@ -1,0 +1,8 @@
+# rentpg_live/admin__url.py
+
+from django.urls import path
+from rentpg_live import admin__web
+
+urlpatterns = [
+    path('admin/', admin__web.admin_panel),
+]

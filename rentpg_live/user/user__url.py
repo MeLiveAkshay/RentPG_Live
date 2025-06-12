@@ -8,4 +8,5 @@ urlpatterns = [
     path('user/dashboard/', user__web.userDashboard, name='user_dashboard'),
     path('user/logout/', user__web.userLogout, name='user_logout'),
     path('user/register/', user__web.userRegister, name='register'),
+    path('user/',user__web.user)
 ]

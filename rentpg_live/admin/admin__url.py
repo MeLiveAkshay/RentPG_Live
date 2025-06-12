@@ -5,4 +5,5 @@ from rentpg_live.admin import admin__web
 
 urlpatterns = [
     path('admin/', admin__web.admin_panel),
+    path('admin/dashboard/', admin__web.admin_dashboard),
 ]

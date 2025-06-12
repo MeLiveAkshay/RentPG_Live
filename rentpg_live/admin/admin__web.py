@@ -6,3 +6,8 @@ from django.shortcuts import render
 
 def admin_panel(request):
     return HttpResponse("Admin Panel")
+
+
+# This is a placeholder for the admin panel view.
+def admin_dashboard(request):
+    return render(request, 'admin/admin_dashboard.html')

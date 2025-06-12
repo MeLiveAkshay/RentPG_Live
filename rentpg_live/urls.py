@@ -8,7 +8,7 @@ from django.conf.urls.static import static
 
 from rentpg_live.user import user__web
 urlpatterns = [
-    
+  
     # Admin Panel
     path('cp-admin/', admin.site.urls),
     
@@ -49,8 +49,10 @@ urlpatterns = [
     path('user/logout/', user__web.userLogout, name='user_logout'),
     path('user/register/', user__web.userRegister, name='register'),
 
-] 
 
 
+    path('', include('rentpg_live.admin.admin__url')),  # Admin URLs
+    path('', include('rentpg_live.user.user__url')),
+    path('', include('rentpg_live.owner.owner__url')),
 
-
+]
